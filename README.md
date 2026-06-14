@@ -167,9 +167,9 @@ After adding noise, pixel values are clipped to stay inside the valid range `[0,
 ├── test_model_shape.py      # Checks input/output tensor shapes
 ├── initialize.py            # Initial dataset and noise visualization
 ├── requirements.txt         # Python dependencies
-├── images/                  # Figures used in README/report
+├── VisualGraphs/            # Figures used in README/report
 ├── report/                  # Scientific report PDF
-└── outputs/                 # Saved custom denoising outputs
+└── outputs/                 # Saved custom denoising output example
 ```
 
 ---
