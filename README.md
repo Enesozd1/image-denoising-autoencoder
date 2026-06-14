@@ -207,24 +207,10 @@ Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
-
----
-
-## Requirements
-
-Example `requirements.txt`:
-
-```text
-torch
-torchvision
-matplotlib
-pillow
-numpy
-```
-
 If you want to use GPU acceleration with CUDA, install the PyTorch version that matches your system from the official PyTorch installation page.
-
 ---
+
+
 
 ## How to Train the Model
 
