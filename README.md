@@ -49,11 +49,11 @@ The training and validation losses decreased consistently, and the curves remain
 
 ### Loss Curve
 
-![Training and Validation Loss](images/stl10_loss_curve.png)
+![Training and Validation Loss](VisualGraphs/stl10_loss_curve.png)
 
 ### Visual Denoising Results
 
-![STL10 Denoising Results](images/stl10_visual_results.png)
+![STL10 Denoising Results](VisualGraphs/stl10_visual_results.png)
 
 ---
 
