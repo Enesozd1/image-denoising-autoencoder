@@ -63,7 +63,7 @@ The model is a convolutional denoising autoencoder.
 
 The encoder compresses the noisy image into a feature representation, while the decoder reconstructs the image back to RGB format.
 
-![Denoising Pipeline Architecture](images/architecture.png)
+![Denoising Pipeline Architecture](VisualGraphs/architecture.png)
 
 ### Encoder
 
