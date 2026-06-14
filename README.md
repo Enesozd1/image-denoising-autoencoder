@@ -168,7 +168,7 @@ After adding noise, pixel values are clipped to stay inside the valid range `[0,
 ├── initialize.py            # Initial dataset and noise visualization
 ├── requirements.txt         # Python dependencies
 ├── VisualGraphs/            # Figures used in README/report
-├── report/                  # Scientific report PDF
+├── Denoiser-(Paper).pdf     # Scientific report PDF
 └── outputs/                 # Saved custom denoising output example
 ```
 
