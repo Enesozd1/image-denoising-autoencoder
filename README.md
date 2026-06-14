@@ -179,7 +179,8 @@ After adding noise, pixel values are clipped to stay inside the valid range `[0,
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/image-denoising-autoencoder.git
+
+git clone https://github.com/Enesozd1/image-denoising-autoencoder.git
 cd image-denoising-autoencoder
 ```
 
