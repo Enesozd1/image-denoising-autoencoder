@@ -1,0 +1,154 @@
+STL10 DENOISING PROJECT - QUICK FILE GUIDE
+==========================================
+
+Project:
+    Color Image Denoising Using a Convolutional Autoencoder
+
+Goal:
+    Train a convolutional autoencoder to remove artificial Gaussian noise
+    from STL10 RGB images.
+
+Main idea:
+    Noisy image -> Autoencoder -> Denoised image
+
+Dataset:
+    STL10
+    RGB images, 96 x 96
+    Labels are ignored because this is reconstruction, not classification.
+
+Noise:
+    Gaussian noise is added manually to clean images.
+
+    x_noisy = x_clean + noise_factor * random_noise
+    noise_factor = 0.08
+
+Model:
+    File: model.py
+
+    DenoisingAutoencoder:
+        Encoder -> Bottleneck -> Decoder
+
+    Input shape:
+        [3, 96, 96]
+
+    Bottleneck:
+        [128, 24, 24]
+
+    Output shape:
+        [3, 96, 96]
+
+    The final Sigmoid keeps output pixel values in [0, 1].
+
+
+FILE ORDER
+==========
+
+1. initialize.py
+    Loads STL10, adds Gaussian noise, and displays clean/noisy images.
+    Used to check dataset loading and noise generation.
+
+2. model.py
+    Defines the DenoisingAutoencoder architecture.
+
+3. test_model_shape.py
+    Sends a fake batch through the model to confirm:
+        input shape  = [4, 3, 96, 96]
+        output shape = [4, 3, 96, 96]
+
+4. train.py
+    Main training script.
+    Loads STL10, adds noise, trains the autoencoder, validates it,
+    saves the model, and generates the loss curve.
+
+5. visualize.py
+    Loads the trained model and shows:
+        Noisy input
+        Denoised output
+        Clean target
+
+6. denoise_custom.py
+    Denoises a custom external image.
+    The image is resized to 96 x 96 before being passed to the model.
+
+
+TRAINING CONFIGURATION
+======================
+
+Framework:
+    PyTorch
+
+Optimizer:
+    Adam
+
+Learning rate:
+    0.001
+
+Batch size:
+    16
+
+Epochs:
+    30
+
+Noise factor:
+    0.08
+
+Loss:
+    Mean Squared Error
+
+Final selected run:
+    Training loss:   approximately 0.001882
+    Validation loss: approximately 0.001852
+
+
+GENERATED FILES
+===============
+
+STL10_denoising_autoencoder.pth
+    Saved trained model weights.
+
+stl10_loss_curve.png
+    Training and validation loss graph.
+
+stl10_visual_results.png
+    Noisy / denoised / clean comparison.
+
+outputs/
+    Custom denoising results from denoise_custom.py.
+
+
+HOW TO RUN
+==========
+
+Recommended order:
+
+    python initialize.py
+    python test_model_shape.py
+    python train.py
+    python visualize.py
+    python denoise_custom.py
+
+If the trained model file already exists, train.py does not need to be
+run again before visualize.py or denoise_custom.py.
+
+
+REQUIREMENTS
+============
+
+Required libraries:
+    torch
+    torchvision
+    matplotlib
+    Pillow
+
+Install command:
+    pip install torch torchvision matplotlib pillow
+
+
+LIMITATIONS
+===========
+
+- Trained only on artificial Gaussian noise.
+- Uses a fixed noise factor of 0.08.
+- Custom images are resized to 96 x 96.
+- Fine details may become slightly smoothed.
+- The model is a simple baseline without skip connections.
